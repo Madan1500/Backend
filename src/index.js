@@ -8,7 +8,7 @@ dotenv.config({ path: "./env" }); //This is the path to the .env file
 connectDB()
     .then(() => {
         console.log("Mongo DB connected")
-        app.on("error", (error) => {
+        app.on("error", (error) => { //This is an event listener that listens for any error that occurs in the app
             console.log("Data Base is connected but something went wrong", error)
             throw new Error(error)
         })

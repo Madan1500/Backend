@@ -1,6 +1,8 @@
-const asynchandler=(requestHandler)=>{
+const asynchandler=(requestHandler)=>{  //requestHandler is a function that takes req,res,next as arguments and returns a promise
     (req,res,next)=>{
-        Promise.resolve(requestHandler).catch((err)=>next(err));
+        Promise
+            .resolve(requestHandler)
+            .catch((err)=>next(err));
     }
 };
 
@@ -19,6 +21,6 @@ export { asynchandler };
 //     try {
 //         await fn(req,res,next)
 //     } catch (error) {
-//         res.status(error.code||500).json({message:error.message||"Something went wrong"})
+//         res.status(error.code||500).json({success:false, message:error.message||"Something went wrong"})
 //     }
 //  };
